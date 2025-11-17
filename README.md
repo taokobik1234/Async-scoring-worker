@@ -120,7 +120,6 @@ POST /api/score-jobs
 Content-Type: application/json
 
 {
-  "submission_id": "uuid",
   "learner_id": "user123",
   "simulation_id": "sim456",
   "submission_data": { }
