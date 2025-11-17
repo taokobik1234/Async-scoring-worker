@@ -20,7 +20,6 @@ class ScoreJobModel {
     const id = uuidv4();
     const job = {
       job_id: id,
-      submission_id: data.submission_id,
       learner_id: data.learner_id,
       simulation_id: data.simulation_id,
       submission_data: data.submission_data,

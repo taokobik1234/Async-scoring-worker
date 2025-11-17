@@ -286,9 +286,8 @@ const options = {
               'application/json': {
                 schema: {
                   type: 'object',
-                  required: ['submission_id', 'learner_id', 'simulation_id'],
+                  required: [ 'learner_id', 'simulation_id'],
                   properties: {
-                    submission_id: { type: 'string' },
                     learner_id: { type: 'string' },
                     simulation_id: { type: 'string' },
                     submission_data: { type: 'object' },

@@ -5,9 +5,9 @@ const logger = require('../utils/logger');
 class ScoreJobController {
   async createScoreJob(req, res, next) {
     try {
-      const { submission_id, learner_id, simulation_id, submission_data } = req.body;
+      const { learner_id, simulation_id, submission_data } = req.body;
 
-      if (!submission_id || !learner_id || !simulation_id) {
+      if (!learner_id || !simulation_id) {
         return res.status(400).json({
           error: 'Bad Request',
           message: 'submission_id, learner_id, and simulation_id are required',
@@ -15,7 +15,6 @@ class ScoreJobController {
       }
 
       const job = await scoreJobModel.create({
-        submission_id,
         learner_id,
         simulation_id,
         submission_data: submission_data || {},
@@ -23,7 +22,6 @@ class ScoreJobController {
 
       await queueService.addScoringJob({
         job_id: job.job_id,
-        submission_id,
         learner_id,
         simulation_id,
         submission_data: submission_data || {},
